@@ -1,17 +1,21 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-
-  state={term:''};
+  state = { term: "" };
   render() {
     return (
       <div className="ui segment">
         <form className="ui form">
           <div className="field">
             <label>Image Search</label>
-            <input type="text" onChange={(event)=>{
-                this.setState({term:event.target.value});
-            }} />
+            <input
+              type="text"
+              value={this.state.term}
+              onChange={(event) => {
+                this.setState({ term: event.target.value.toUpperCase() });
+                //this is called controlled component
+              }}
+            />
           </div>
         </form>
       </div>
