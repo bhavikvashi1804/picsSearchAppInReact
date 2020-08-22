@@ -5,15 +5,15 @@ import ImageList from "./ImageList";
 import ACCESS_KEY from "../secure";
 
 class App extends React.Component {
-  onSearchSubmit(term) {
-    axios.get("https://api.unsplash.com/search/photos", {
+  async onSearchSubmit(term) {
+    var response=await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: term },
       headers: {
         Authorization: `Client-ID ${ACCESS_KEY}`
       },
-    }).then(
-        response=>console.log(response.data.results)
-    );
+    });
+
+    console.log(response.data.results);
   }
   render() {
     return (
