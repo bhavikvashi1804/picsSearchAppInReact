@@ -2,10 +2,19 @@ import React from "react";
 
 class SearchBar extends React.Component {
   state = { term: "" };
+
+  onFormSubmit(event){
+    event.preventDefault();
+    //the browser will not discard the value of form field if user press enter 
+    console.log("onSubmit is called");
+    //console.log(this.state.term);
+    //this gives you error that state is not defined
+  }
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
             <input
