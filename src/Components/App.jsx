@@ -3,7 +3,6 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 import ACCESS_KEY from "../secure";
-import SECRET_KEY from "../secure";
 
 class App extends React.Component {
   onSearchSubmit(term) {
@@ -12,7 +11,9 @@ class App extends React.Component {
       headers: {
         Authorization: `Client-ID ${ACCESS_KEY}`
       },
-    });
+    }).then(
+        response=>console.log(response.data.results)
+    );
   }
   render() {
     return (
