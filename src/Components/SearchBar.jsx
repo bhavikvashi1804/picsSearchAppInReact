@@ -3,12 +3,14 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "" };
 
-  onFormSubmit(event){
+  onFormSubmit=(event)=> {
     event.preventDefault();
     //the browser will not discard the value of form field if user press enter 
     console.log("onSubmit is called");
-    //console.log(this.state.term);
+    console.log(this.state.term);
     //this gives you error that state is not defined
+    //to get the value use this
+    
   }
 
   render() {
