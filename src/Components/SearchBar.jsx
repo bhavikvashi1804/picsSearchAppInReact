@@ -3,7 +3,7 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "" };
 
-  onFormSubmit=(event)=> {
+  onFormSubmit(event){
     event.preventDefault();
     //the browser will not discard the value of form field if user press enter 
     console.log("onSubmit is called");
@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form" onSubmit={this.onFormSubmit}>
+        <form className="ui form" onSubmit={(event)=>this.onFormSubmit(event)}>
           <div className="field">
             <label>Image Search</label>
             <input
