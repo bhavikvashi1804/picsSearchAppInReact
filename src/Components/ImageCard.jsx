@@ -5,6 +5,7 @@ class ImageCard extends React.Component{
     constructor(props){
         super(props);
         this.imageRef=React.createRef();
+        this.state={spans:0};
     }
 
     componentDidMount(){
@@ -12,16 +13,15 @@ class ImageCard extends React.Component{
     }
 
     setSpans=()=>{
-        console.log(this.imageRef.current.clientHeight);
-        //this is the only way to access the height
-        //if you access the height in componentDidMount it gives you 0
-        //even if in componentDidMount when you print this.imageRef then it gives some value of client height
+        const height=this.imageRef.current.clientHeight;
+        const spans=Math.ceil(height /150 );
+        this.setState({spans:spans});
     }
     
     render(){
         const {description,urls}=this.props.image;
         return(
-            <div>
+            <div style={{gridRowEnd: `span ${this.state.spans}`}}>
                 <img src={urls.regular} alt={description} ref={this.imageRef}/>
             </div>
         );
